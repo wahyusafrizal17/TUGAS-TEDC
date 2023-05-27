@@ -1,0 +1,594 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Collection WE Sport</title>
+
+    <link href="//fonts.googleapis.com/css?family=Mukta:300,400,500" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <script src="assets/lib/vue.js"></script>
+  </head>
+  <body>
+<!--header-->
+<header id="site-header" class="fixed-top">
+  <div class="container">
+      <nav class="navbar navbar-expand-lg stroke px-0 pt-lg-0">
+          <h1> <a class="navbar-brand" href="index.html">
+                  <span class="fa"></span> WE Sport
+              </a></h1>
+          <!-- if logo is image enable this   
+  <a class="navbar-brand" href="#index.html">
+      <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+  </a> -->
+          <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+              data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+              <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mx-lg-auto">
+                  <li class="nav-item @@home__active">
+                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item @@about__active">
+                      <a class="nav-link" href="brand.html">Brand</a>
+                  </li>
+                  <li class="nav-item active">
+                      <a class="nav-link" href="collection.html">Collection</a>
+                  </li>
+              </ul>
+
+              <!--/search-right-->
+              <div class="search-right">
+                  <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
+                  <!-- search popup -->
+                  <div id="search" class="pop-overlay">
+                      <div class="popup">
+
+                          <form action="error.html" method="GET" class="search-box">
+                              <input type="search" placeholder="Enter Keyword" name="search" required="required"
+                                  autofocus="">
+                              <button type="submit" class="btn"><span class="fa fa-search"
+                                      aria-hidden="true"></span></button>
+                          </form>
+
+                      </div>
+                      <a class="close" href="#close">×</a>
+                  </div>
+                  <!-- /search popup -->
+              </div>
+              <!--//search-right-->
+              <div class="top-quote mr-lg-3 mt-lg-0">
+                  <!-- <a href="#buytheme" class="btn btn-style btn-primary">Beli Sekarang</a> -->
+              </div>
+          </div>
+          <!-- toggle switch for light and dark theme -->
+          <div class="mobile-position">
+              <nav class="navigation">
+                  <div class="theme-switch-wrapper">
+                      <label class="theme-switch" for="checkbox">
+                          <input type="checkbox" id="checkbox">
+                          <div class="mode-container">
+                              <i class="gg-sun"></i>
+                              <i class="gg-moon"></i>
+                          </div>
+                      </label>
+                  </div>
+              </nav>
+          </div>
+          <!-- //toggle switch for light and dark theme -->
+      </nav>    
+  </div>
+</header>
+<!--/header-->
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-5">
+        <div class="container py-lg-4 py-md-3">
+            <h2 class="title">Cari Jersey Terbaik Kamu Di WE Sport</h2>
+        </div>
+    </div>
+</section>
+<!-- tabs team-->
+<main class="container" id="product_list">
+ <section class="w3l-ecommerce-main">
+  <!-- /products-->
+  <div class="ecom-contenthny py-5">
+    <div class="container py-lg-5">
+      <div class="row">
+        <div class="col-md-8">
+          
+        </div>
+        <div class="col-md-4">
+          <input v-model="keyword" class="form-control" type="search" placeholder="Search" aria-label="Search" />
+        </div>
+      </div>
+      
+      <!-- /row-->
+
+      <div class="ecom-products-grids row mt-lg-5 mt-3" id="app">
+        <div class="col-lg-3 col-6 product-incfhny mt-4" v-for="product in filterProducts" :key="product.judul">
+          <div class="product-grid2 transmitv">
+            <div class="product-image2">
+              <a href="javascript:void(0)">
+                <img class="pic-1 img-fluid" :src="'assets/images/' + product.image" >
+              </a>
+              <div class="transmitv single-item mt-2">
+                  <button type="button" @click="setPesanan(product)" style="width: 100%;" class="btn btn-primary btn-sm transmitv-cart ptransmitv-cart add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Beli Sekarang
+                  </button>
+              </div>
+            </div>
+            <div class="product-content mt-3">
+              <h5 class="title"><a href="javascript:void(0)" class="text-black"> {{ product.judul }} </a></h5>
+              <span class="price text-primary mt-2"><del> {{ product.harga }} </del> {{ product.diskon }} </span>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">DETAIL BARANG</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <img :src="'assets/images/' + pesan.image" class="img-thumbnail" width="500" alt="...">
+                   
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Nama Produk</label>
+                        <label for="staticEmail" class="col-sm-8 col-form-label">{{pesan.judul}}</label>
+                      
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Warna</label>
+                        <label for="staticEmail" class="col-sm-8 col-form-label">{{pesan.warna}}</label>
+                        
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Ukuran</label>
+                        <label for="staticEmail" class="col-sm-8 col-form-label">40/41/42/43/44/45</label>
+                        
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Merek</label>
+                        <label for="staticEmail" class="col-sm-8 col-form-label">{{pesan.brand}}</label>
+                        
+                        <label for="staticEmail" class="col-sm-4 col-form-label mb-2">Harga</label>
+                        <div class="col-sm-8 mb-2">
+                          <input type="number" class="form-control" id="inputharga" v-model="diskon" readonly>
+                        </div>
+
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Jumlah</label>
+                        <div class="col-sm-8">
+                          <input type="number" class="form-control" id="inputharga" v-model="jmlbarang">
+                        </div>
+                        <button class="btn btn-primary mt-3 col-sm-3 offset-8" @click="setHasil(tambah)">Checkout</button>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <!-- <input type="hidden" class="form-control" id="totalharga"> -->
+                        <div class="col-md-3">Total Bayar</div>
+                        <div class="col-md-1">:</div>
+                        <div class="col-md-8"><span>{{hasil}}</span></div>
+                      </div>
+                      <!-- <label for="staticEmail" class="col-sm-12 col-form-label">Total Bayar</label>
+                      <span>{{hasil}}</span> -->
+                   
+                  </div>
+                  <div class="modal-footer modal-hide">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=6281318960576&text=Saya%20tertarik%20untuk%20membeli%20produk%20ini%20segera." class="btn btn-primary">Beli</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+
+      </div>
+      <!-- //row-->
+  </div>
+  
+</section>
+</main>
+
+<!-- //tabs team -->
+
+                <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
+                <div id="small-dialog1" class="zoom-anim-dialog mfp-hide">
+                    <iframe src="https://www.youtube.com/embed/3zBcpK52ZSM" allow="autoplay; fullscreen"
+                        allowfullscreen=""></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-lg-0 mt-4">
+                <img src="assets/images/3.png" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<section class="w3l-specification-6 py-5">
+  <div class="bottom-copies text-center">
+    <div class="container">
+      <p class="copy-footer-29">©© 2022 WE Sport. All rights reserved | Designed by Napel
+          
+    </div>
+  </div>
+
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+    <span class="fa fa-angle-up"></span>
+  </button>
+  <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("movetop").style.display = "block";
+      } else {
+        document.getElementById("movetop").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <!-- //move top -->
+</section>
+
+<!-- Template JavaScript -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<script src="assets/js/theme-change.js"></script>
+
+<!-- js for portfolio lightbox -->
+<script src="assets/js/jquery-2.1.4.min.js"></script>
+<script src="assets/js/jquery.chocolat.js "></script>
+<!--light-box-files -->
+<script type="text/javascript ">
+  $(function () {
+    $('.w3_agile_portfolio_grid a').Chocolat();
+  });
+</script>
+<!-- /js for portfolio lightbox -->
+
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function () {
+    $('.popup-with-zoom-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-zoom-in'
+    });
+
+    $('.popup-with-move-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-slide-bottom'
+    });
+  });
+</script>
+
+<!-- script for testimonials -->
+<script>
+  $(document).ready(function () {
+    $('#exampleModal').on('hidden.bs.modal', function () {
+      location.reload();
+    });
+    $('.owl-testimonial').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: true,
+      dots: false,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: true
+        },
+        480: {
+          items: 1,
+          nav: true
+        },
+        667: {
+          items: 1,
+          nav: true
+        },
+        1000: {
+          items: 1,
+          nav: true
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for testimonials -->
+
+<!-- script for blog slider -->
+<script>
+  $(document).ready(function () {
+    $('.owl-two').owlCarousel({
+      loop: true,
+      margin: 30,
+      nav: false,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        480: {
+          items: 1,
+          nav: false
+        },
+        992: {
+          items: 2,
+          nav: false
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for blog slider -->
+
+<script src="assets/js/owl.carousel.js"></script>
+
+<!-- script for banner slider-->
+<script>
+  $(document).ready(function () {
+    $('.modal-hide').hide();
+    $('.owl-one').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        480: {
+          items: 1,
+          nav: false
+        },
+        667: {
+          items: 1,
+          nav: false
+        },
+        1000: {
+          items: 1,
+          nav: false
+        }
+      }
+    })
+  })
+</script>
+<!-- //script -->
+
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--/MENU-JS-->
+<script>
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+<!--//MENU-JS-->
+
+<script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  const products = [
+        {
+          id: 11,
+          judul: 'Jersey Real Madrid',
+          // harga: 'Rp2.000.000',
+          diskon: 'Rp 1.875.000',
+          image: 'madrid.jpg',
+          warna: 'Hitam',
+          brand: 'Wimcycle'
+        },
+        {
+          id: 12,
+          judul: 'Jersey Arsenal',
+          // harga: 'Rp2.990.000',
+          diskon: 'Rp 2.890.880',
+          image: 'arsenal.jpg',
+          warna: 'Hitam',
+          brand: 'Pacific'
+        },
+        {
+          id: 13,
+          judul: 'Jersey Manchester United',
+          // harga: 'Rp3.450.000',
+          diskon: 'Rp 3.352.000',
+          image: 'mu.jpg',
+          warna: 'Hitam',
+          brand: 'Polygon'
+        },
+        {
+          id: 14,
+          judul: 'Jersey AC Milan',
+          // harga: 'Rp1.550.000',
+          diskon: 'Rp 1.375.000',
+          image: 'milan.jpg',
+          warna: 'Putih Hitam',
+          brand: 'Atlantis'
+        },
+        {
+          id: 15,
+          judul: 'Jersey Atletico Madrid',
+          // harga: 'Rp1.800.800',
+          diskon: 'R p1.795.330',
+          image: 'atletico.jpg',
+          warna: 'Hitam Kuning',
+          brand: 'Thrill'
+        },
+        {
+          id: 16,
+          judul: 'Jersey Barcelona',
+          // harga: 'Rp2.500.000',
+          diskon: 'Rp 2.400.000',
+          image: 'barca.jpg',
+          warna: 'Putih',
+          brand: 'Wimcycle'
+        },
+        {
+          id: 17,
+          judul: 'Jersey Inter Milan',
+          // harga: 'Rp4.975.000',
+          diskon:'Rp 4.250.000',
+          image: 'inter.jpg',
+          warna: 'Hitam',
+          brand: 'Avand'
+        },
+        {
+          id: 18,
+          judul: 'Jersey Machester City',
+          // harga: 'Rp3.650.000',
+          diskon:'Rp 3.225.000',
+          image: 'city.jpg',
+          warna: 'Biru',
+          brand: 'Thrill'
+        }
+      ];
+      const productList = new Vue({
+        el: "#product_list",
+        data: {
+          pesan: {
+            name: "",
+            price: 0,
+            nama: "",
+            alamat: "",
+            pembayaran: "cash",
+            garansi: false,
+          },
+          
+          jmlbarang:1,
+          diskon:175000,
+          hasil:0,
+          products,
+          filterProducts: null,
+          keyword: "",
+        },
+        created() {
+          this.filterProducts = this.products;
+        },
+        watch: {
+          keyword: function (keyword) {
+            this.filterProducts = this.products.filter((product) => product.judul.includes(keyword));
+          },
+        },
+        methods: {
+          currency: function (harga) {
+            return harga.toLocaleString("id-ID", {
+              style: "currency",
+              currency: "IDR",
+              minimumFractionDigits: 2,
+            });
+          },
+          setHasil: function (tambah) {
+              $('.modal-hide').show();
+                this.hasil=parseInt(this.jmlbarang)*parseInt(this.diskon);
+                $('#totalharga').val(this.hasil);
+              },
+              filters: {
+            upper (text) {
+            return text.toUpperCase()
+            }
+          },
+          setPesanan: function (product) {
+            this.pesan = {
+              judul: product.judul,
+              harga: product.harga,
+              image: product.image,
+              warna: product.warna,
+              brand: product.brand,
+              diskon: product.diskon,
+              harga: product.harga,
+            };
+          },
+          
+        },
+      });
+</script>
+
+
+</html>
