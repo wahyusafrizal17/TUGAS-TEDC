@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Elosquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AssignProjek extends Model
